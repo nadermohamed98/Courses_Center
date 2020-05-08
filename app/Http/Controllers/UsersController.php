@@ -35,7 +35,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
+       /* $user = new User();
         $user->name= $request->input('name');
         $user->email= $request->input('email');
         $user->password= $request->input('password');
@@ -45,6 +45,7 @@ class UsersController extends Controller
         $user->role_id = '3';
         $user->save();
         return redirect('/register')->with('success','User Registed','error','Email already exists');
+  */
     }
 
     /**

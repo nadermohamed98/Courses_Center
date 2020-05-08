@@ -65,16 +65,16 @@ class RegisterController extends Controller
     {
         
         return User::create([
-          /* 'name' => $data['name'],
+           'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'DateOfBirth' => $data['DateOfBirth'],
             'address' => $data['address'],
             'phonenumber' => $data['phonenumber'],
-            'role_id' == ['3'],*/
-            //DB::insert('insert into users (name,email,password,DateOfBirth,address,phonenumber,role_id) values (?,?,?,?,?,?,?)', [$data['name'],$data['email'],$data['password'],$data['DateOfBirth'],$data['address'],$data['phonenumber'],3]),
-            DB::insert('insert into users (name,email,password,DateOfBirth,address,phonenumber,role_id) values (?,?,?,?,?,?,?)', [$data=>'name',$data->email,$data['password'],$data['DateOfBirth'],$data['address'],$data['phonenumber'],3]),
-            
+            'role_id' => 3,
+           // DB::insert('insert into users (name,email,password,DateOfBirth,address,phonenumber,role_id) values (?,?,?,?,?,?,?)', [$data['name'],$data['email'],$data['password'],$data['DateOfBirth'],$data['address'],$data['phonenumber'],3]),
         ]);
+
+
     }
 }
