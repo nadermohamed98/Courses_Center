@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -34,7 +35,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->name= $request->input('name');
+        $user->email= $request->input('email');
+        $user->password= $request->input('password');
+        $user->DateOfBirth= $request->input('DateOfBirth');
+        $user->address= $request->input('address');
+        $user->phonenumber= $request->input('phonenumber');
+        $user->role_id = '3';
+        $user->save();
+        return redirect('/register')->with('success','User Registed','error','Email already exists');
     }
 
     /**

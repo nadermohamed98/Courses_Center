@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -8,7 +7,7 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="register">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -62,6 +61,33 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="DateOfBirth" class="col-md-4 control-label">Birthday</label>
+
+                            <div class="col-md-6">
+                                <input id="DateOfBirth" type="date" class="form-control" name="DateOfBirth" required>
+                               
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" placeholder="1234 Main St" required>
+                               
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phonenumber" class="col-md-4 control-label">Phone number</label>
+
+                            <div class="col-md-6">
+                                <input id="phonenumber" type="tel" class="form-control" name="phonenumber" placeholder="01---------" required>
+                               
+                            </div>
+                        </div>
+
+                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
