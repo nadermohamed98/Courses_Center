@@ -11,9 +11,20 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Link</a></li>
                 <li><a href="#">Disabled</a></li>
+                            
+            @if (Route::has('login'))
+            
+                @if (Auth::check())
+                    <li class=""> <a href="{{ url('/home') }}">Home</a></li>
+                @else
+                    <li>  <a href="{{ url('/login') }}">Login</a></li>
+                    <li>  <a href="{{ url('/register') }}">Register</a></li>
+                @endif
+            
+            @endif
+
             </ul>
         </div>
     </div>

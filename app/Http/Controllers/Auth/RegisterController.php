@@ -6,7 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use DB;
 class RegisterController extends Controller
 {
     /*
@@ -47,6 +47,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -62,10 +63,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         return User::create([
-            'name' => $data['name'],
+          /* 'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'DateOfBirth' => $data['DateOfBirth'],
+            'address' => $data['address'],
+            'phonenumber' => $data['phonenumber'],
+            'role_id' == ['3'],*/
+            //DB::insert('insert into users (name,email,password,DateOfBirth,address,phonenumber,role_id) values (?,?,?,?,?,?,?)', [$data['name'],$data['email'],$data['password'],$data['DateOfBirth'],$data['address'],$data['phonenumber'],3]),
+            DB::insert('insert into users (name,email,password,DateOfBirth,address,phonenumber,role_id) values (?,?,?,?,?,?,?)', [$data=>'name',$data->email,$data['password'],$data['DateOfBirth'],$data['address'],$data['phonenumber'],3]),
+            
         ]);
     }
 }
