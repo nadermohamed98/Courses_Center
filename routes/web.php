@@ -15,12 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('pages.index');
-});
+Route::get('/home', 'PagesController@home');
+Route::get('/web', 'PagesController@web');
+Route::get('/programming', 'PagesController@programming');
+Route::get('/languages', 'PagesController@languages');
+Route::get('/about', 'PagesController@about');
+Route::get('/contact', 'PagesController@contact');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/register','UsersController@store');
+//Route::post('/register','UsersController@store');

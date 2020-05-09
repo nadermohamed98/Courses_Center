@@ -94,6 +94,7 @@
                                 </button>
                             </div>
                         </div>
+                        @include('inc.messages')
                     </form>
                 </div>
             </div>
