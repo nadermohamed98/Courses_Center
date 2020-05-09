@@ -66,6 +66,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'DateOfBirth' => $data['DateOfBirth'],
+            'address' => $data['address'],
+            'phonenumber' => $data['phonenumber'],
+            'role_id' => 3,
         ]);
+        //return redirect('/register')->with('success','Done');
     }
 }
