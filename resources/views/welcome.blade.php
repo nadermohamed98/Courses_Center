@@ -20,7 +20,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Wellcom Page to out site
+                    Wellcom Page to our site
                 </div>
             </div>
         </div>

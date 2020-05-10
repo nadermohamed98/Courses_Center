@@ -55,8 +55,8 @@ nav a{
 }
 .card-container{
 
-	width: 350px;
-	height: 525px;
+	width: 850px;
+	height: 480px;
 	background: #FFF;
 	border-radius: 6px;
 	position: absolute;
@@ -85,10 +85,10 @@ nav a{
 	border-radius: 50%;
 }
 .lower-container{
-	height: 280px;
 	background: #FFF;
 	padding: 20px;
 	padding-top: 40px;
+    text-align: center;
 
 }
 

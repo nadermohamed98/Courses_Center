@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>profile page</title> 
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     
     <body>
@@ -25,12 +25,12 @@
         <div class="card-container">
             <div class="upper-container">
                 <div class="image-container">
-                    <img src="../../public/css/profile.jpg" />
+                    <img src="css/profile.jpg" />
                 </div>	
             </div>
             <div class="lower-container">
                 <div class="tables">
-                    <table style="width:70%">
+                    <table>
                          <tr>
                         <td>username : </td>
                         <td>mahmoud mostafa</td>

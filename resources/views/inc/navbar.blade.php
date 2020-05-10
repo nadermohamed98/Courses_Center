@@ -7,27 +7,30 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/home">CORSATAK</a>
+            <a class="navbar-brand" href="/welcome">CORSATAK</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">
-                <li><a href="/web">Web</a></li>
-                <li><a href="/programming">Programming</a></li>
-                <li><a href="/languages">Languages</a></li>
-                <li><a href="/about">About us</a></li>
-                <li><a href="/contact">Contact us</a></li>
-                
+            <ul class="nav navbar-nav">   
                 @if (Route::has('login'))
                 
                     @if (Auth::check())
+            
                         <li><a href="{{ url('/home') }}">Home</a></li>
+                        <li><a href="/web">Web</a></li>
+                        <li><a href="/programming">Programming</a></li>
+                        <li><a href="/languages">Languages</a></li>
+                        <li><a href="/about">About us</a></li>
+                        <li><a href="/contact">Contact us</a></li>
+                        <li><a href="{{ url('/profile page') }}">profile page</a></li>
                         <li><a href="{{ url('/logout') }}">Logout</a></li>
-                    @else
+            
+                @else
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
-                    @endif
+                </ul>
                 @endif
-            </ul>
+                @endif
+            
         </div>
     </div>
   </nav>
