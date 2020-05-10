@@ -10,6 +10,10 @@ class PagesController extends Controller
         return view("home");
     }
     
+    public function welcome(){
+        return view("welcome");
+    }
+    
     public function web(){
         return view("Web");
     }
@@ -24,5 +28,8 @@ class PagesController extends Controller
     }
     public function contact(){
         return view("Contact");
+    }
+    public function profile(){
+        return view("profile");
     }
 }
