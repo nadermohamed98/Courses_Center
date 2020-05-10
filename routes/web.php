@@ -29,5 +29,10 @@ Route::get('/logout',function(){
     return view('/welcome');
 });
 
+Route::get("/logout",function(){
+   Auth::logout();
+    return view("/welcome");
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('/register','UsersController@store');
