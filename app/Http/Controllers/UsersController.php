@@ -15,7 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -68,7 +68,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('editprofile')->with('user',$user);
     }
 
     /**
@@ -80,7 +81,25 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name= $request->input('name');
+        $user->email= $request->input('email');
+        $user->password= $request->input('password');
+        $user->DateOfBirth= $request->input('DateOfBirth');
+        $user->address= $request->input('address');
+        $user->phonenumber= $request->input('phonenumber');
+        if ($user->role_id==1) {
+            $user->role_id = '1';
+        }
+        elseif ($user->role_id==2) {
+            $user->role_id = '2';
+        }
+        else {
+            $user->role_id = '3';
+        }
+        
+        $user->save();
+        return redirect('/profile')->with('success','User Updated Successfully!');
     }
 
     /**
