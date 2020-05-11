@@ -59,7 +59,7 @@
                             <div class="text-center">
                             <a href="/users/{{Auth::user()->id}}/edit" class="btn btn-danger">Edite profile</a><br><br>
                             @if(Auth::user()->role_id == 1)
-                            <a href="#" class="btn btn-danger">Add</a>
+                            <a href="/users/create" class="btn btn-danger">Add</a>
                             <a href="#" class="btn btn-danger">Edit</a>
                             <a href="#" class="btn btn-danger">Delete</a>
                             @endif

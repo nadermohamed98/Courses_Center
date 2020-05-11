@@ -21,6 +21,12 @@
                         <li><a href="/languages">Languages</a></li>
                         <li><a href="/about">About us</a></li>
                         <li><a href="/contact">Contact us</a></li>
+                        <li><a href="{{ url('/profile page') }}">profile page</a></li>
+                    
+            </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @else
+
                         <li><a href="/profile">Profile Page</a></li>
                     @endif
                 @endif   
@@ -33,12 +39,13 @@
                   
                         <li><a href="{{ url('/logout') }}">logout</a></li>
                     @else
+
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
-                </ul>
+                        @endif
+                    </ul>
                 @endif
-                @endif
-            
+               
         </div>
     </div>
   </nav>
