@@ -14,7 +14,13 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+         //
+        
+    }
+    public function viewallusers()
+    {
+        $users = User::all();
+         return view('viewallusers')->with('users',$users);
     }
 
     /**
@@ -24,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('Add');
+        return view('Adduser');
     }
 
     /**
@@ -47,7 +53,7 @@ class UsersController extends Controller
             $user->phonenumber= $request->input('phonenumber');
             $user->role_id = $request->input('usertype');
             $user->save();
-            return redirect('/home')->with('success','User Added successfully');
+            return redirect('/users/show')->with('success','User Added successfully');
         
         }catch(PDOException $e){
             echo "zrbooo";
@@ -62,7 +68,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::all();
+        return view('showallusers')->with('users',$users);
     }
 
     /**
@@ -116,7 +123,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/users/show')->with('success','User Deleted');
     }
 
 }

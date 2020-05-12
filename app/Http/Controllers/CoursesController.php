@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Course;
 
 class CoursesController extends Controller
 {
@@ -15,6 +16,11 @@ class CoursesController extends Controller
     {
         //
     }
+    public function viewallcourses()
+    {
+        $courses = Course::all();
+        return view('viewallcourses')->with('courses',$courses); 
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +29,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        //
+        return view('Addcourse');
     }
 
     /**
@@ -34,7 +40,11 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $course = new Course();
+        $course->course_name= $request->input('coursename');
+        $course->course_code= $request->input('coursecode');
+        $course->save();
+        return redirect('/course/create')->with('success','Course Added successfully');
     }
 
     /**
@@ -45,7 +55,9 @@ class CoursesController extends Controller
      */
     public function show($id)
     {
-        //
+        $courses = Course::all();
+        return view('showallcourses')->with('courses',$courses);
+        
     }
 
     /**
@@ -56,7 +68,9 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        //
+    
+        $course = Course::find($id);
+       return view('editcourse')->with('course',$course);
     }
 
     /**
@@ -68,7 +82,11 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $course = Course::find($id);
+        $course->course_name= $request->input('coursename');
+        $course->course_code= $request->input('coursecode');
+        $course->save();
+        return redirect('/course/create')->with('success','Course Updated successfully');
     }
 
     /**
@@ -79,6 +97,8 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+        $course->delete();
+        return redirect('/course/edit')->with('success','Course Deleted');
     }
 }

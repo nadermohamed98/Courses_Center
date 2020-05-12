@@ -23,7 +23,22 @@ Route::get('/programming', 'PagesController@programming');
 Route::get('/languages', 'PagesController@languages');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
+Route::get('/viewallusers', 'UsersController@viewallusers');
+Route::get('/viewallcourses', 'CoursesController@viewallcourses');
 Route::resource('users','UsersController');
+Route::resource('course','CoursesController');
+
+Route::get('/add',function(){
+    return view('add');
+});
+Route::get('/edit',function(){
+    return view('edit');
+});
+Route::get('/view',function(){
+    return view('view');
+});
+
+
 //Route::get('/users/{id}/edit','UsersController@edit');
 //Route::put('/users/{id}','UsersController@update');
 
