@@ -15,9 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $profile = Profile::create([
-           'id' = Auth::user()=>id; 
-        ]);
+        //
     }
 
     /**
@@ -27,7 +25,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('Add');
     }
 
     /**
@@ -38,16 +36,22 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
-        $user->name= $request->input('name');
-        $user->email= $request->input('email');
-        $user->password= $request->input('password');
-        $user->DateOfBirth= $request->input('DateOfBirth');
-        $user->address= $request->input('address');
-        $user->phonenumber= $request->input('phonenumber');
-        $user->role_id = '3';
-        $user->save();
-        return redirect('/register')->with('success','User Registed','error','Email already exists');
+        try{
+            
+            $user = new User();
+            $user->name= $request->input('name');
+            $user->email= $request->input('email');
+            $user->password= bcrypt($request->input('password'));
+            $user->DateOfBirth= $request->input('DateOfBirth');
+            $user->address= $request->input('address');
+            $user->phonenumber= $request->input('phonenumber');
+            $user->role_id = $request->input('usertype');
+            $user->save();
+            return redirect('/home')->with('success','User Added successfully');
+        
+        }catch(PDOException $e){
+            echo "zrbooo";
+        }
     }
 
     /**
@@ -69,7 +73,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('editprofile')->with('user',$user);
     }
 
     /**
@@ -81,7 +86,25 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name= $request->input('name');
+        $user->email= $request->input('email');
+        $user->password= $request->input('password');
+        $user->DateOfBirth= $request->input('DateOfBirth');
+        $user->address= $request->input('address');
+        $user->phonenumber= $request->input('phonenumber');
+        if ($user->role_id==1) {
+            $user->role_id = '1';
+        }
+        elseif ($user->role_id==2) {
+            $user->role_id = '2';
+        }
+        else {
+            $user->role_id = '3';
+        }
+        
+        $user->save();
+        return redirect('/profile page')->with('success','User Updated Successfully!');
     }
 
     /**

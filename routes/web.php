@@ -23,14 +23,17 @@ Route::get('/programming', 'PagesController@programming');
 Route::get('/languages', 'PagesController@languages');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
-
+Route::resource('users','UsersController');
+//Route::get('/users/{id}/edit','UsersController@edit');
+//Route::put('/users/{id}','UsersController@update');
 
 Auth::routes();
 
-Route::get("/logout",function(){
-   Auth::logout();
-    return view("/welcome");
+Route::get('/logout',function(){
+    Auth::logout();
+    return view('/welcome');
 });
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('/register','UsersController@store');

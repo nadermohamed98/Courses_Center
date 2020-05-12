@@ -10,7 +10,7 @@
             <a class="navbar-brand" href="/welcome">CORSATAK</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">   
+            <ul class="nav navbar-nav">
                 @if (Route::has('login'))
                 
                     @if (Auth::check())
@@ -22,11 +22,24 @@
                         <li><a href="/about">About us</a></li>
                         <li><a href="/contact">Contact us</a></li>
                         <li><a href="{{ url('/profile page') }}">profile page</a></li>
-                        <li><a href="{{ url('/logout') }}">Logout</a></li>
                     
             </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @else
+
+                        <li><a href="/profile">Profile Page</a></li>
+                    @endif
+                @endif   
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">    
+                @if (Route::has('login'))
+                
+                    @if (Auth::check())
+                  
+                        <li><a href="{{ url('/logout') }}">logout</a></li>
+                    @else
+
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                         @endif
