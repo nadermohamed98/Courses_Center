@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         @include('inc.messages')
-                    </form>    
+                    </form>
                 </div>
             </div>
         </div>

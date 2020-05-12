@@ -20,7 +20,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Wellcom Page to our site
+                    Wellcom to<br><b>CORSATAK</b><br> web site 
                 </div>
             </div>
         </div>

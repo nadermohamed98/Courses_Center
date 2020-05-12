@@ -38,6 +38,7 @@ class UsersController extends Controller
         try{
             
             $user = new User();
+            //        $user->imageopath = $request->input('imagepath');
             $user->name= $request->input('name');
             $user->email= $request->input('email');
             $user->password= bcrypt($request->input('password'));
@@ -86,6 +87,7 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
+//        $user->imageopath = $request->input('imagepath');
         $user->name= $request->input('name');
         $user->email= $request->input('email');
         $user->password= bcrypt($request->input('password'));
