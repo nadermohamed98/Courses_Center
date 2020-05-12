@@ -15,7 +15,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $profile = Profile::create([
+           'id' = Auth::user()=>id; 
+        ]);
     }
 
     /**

@@ -23,14 +23,16 @@
                         <li><a href="/contact">Contact us</a></li>
                         <li><a href="{{ url('/profile page') }}">profile page</a></li>
                         <li><a href="{{ url('/logout') }}">Logout</a></li>
-            
-                @else
+                    
+            </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @else
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
-                </ul>
+                        @endif
+                    </ul>
                 @endif
-                @endif
-            
+               
         </div>
     </div>
   </nav>
