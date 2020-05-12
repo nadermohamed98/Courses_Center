@@ -27,7 +27,6 @@
                     <ul class="nav navbar-nav navbar-right">
                         @else
 
-                        <li><a href="/profile">Profile Page</a></li>
                     @endif
                 @endif   
             </ul>

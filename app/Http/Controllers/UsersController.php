@@ -88,7 +88,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->name= $request->input('name');
         $user->email= $request->input('email');
-        $user->password= $request->input('password');
+        $user->password= bcrypt($request->input('password'));
         $user->DateOfBirth= $request->input('DateOfBirth');
         $user->address= $request->input('address');
         $user->phonenumber= $request->input('phonenumber');
