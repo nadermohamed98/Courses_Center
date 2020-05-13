@@ -7,7 +7,6 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    @try{
                     <form class="form-horizontal" method="POST" action="{{action('UsersController@store')}}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -106,9 +105,6 @@
                         </div>
                         @include('inc.messages')
                     </form>
-                    }@catch(\Exception $e){
-                        echo "xxxxsacsc";
-                    }
                 </div>
             </div>
         </div>
