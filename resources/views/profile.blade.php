@@ -62,6 +62,12 @@
                             <a href="/add" class="btn btn-danger">Add</a>
                             <a href="/edit" class="btn btn-danger">Edit & Delete</a>
                             <a href="/view" class="btn btn-danger">View</a>
+                            @elseif(Auth::user()->role_id == 3)
+                            <a href="/Student_course/show" class="btn btn-primary">Enroll Courses</a>
+                            <a href="/studentcourseslist" class="btn btn-success">View courses list</a>
+                            <a href="/showgrade" class="btn btn-success">View grade</a>
+                            @elseif(Auth::user()->role_id == 2)
+                            <a href="/Student_course/edit" class="btn btn-primary">Add grade</a>
                             @endif
                             </div>
                             <hr>

@@ -25,8 +25,17 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/viewallusers', 'UsersController@viewallusers');
 Route::get('/viewallcourses', 'CoursesController@viewallcourses');
+Route::get('/studentcourseslist', 'Student_CoursesController@studentcourseslist');
+Route::get('/showgrade', 'Student_CoursesController@showgrade');
+Route::get('/coursesthatteacherhave/{id}', 'Student_CoursesController@addgrade');
 Route::resource('users','UsersController');
 Route::resource('course','CoursesController');
+Route::resource('staff','StaffsController');
+Route::resource('teacher_course','Teacher_CoursesController');
+
+//----------
+//Route::get('/enrollcourses','PagesController@enrollcourses');
+Route::resource('Student_course','Student_CoursesController');
 
 Route::get('/add',function(){
     return view('add');
@@ -37,6 +46,8 @@ Route::get('/edit',function(){
 Route::get('/view',function(){
     return view('view');
 });
+
+
 
 
 //Route::get('/users/{id}/edit','UsersController@edit');

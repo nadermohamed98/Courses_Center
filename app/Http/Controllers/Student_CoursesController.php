@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Course;
+use App\Student_course;
+use App\User;
+use Auth;
+use DB;
+use App\Teacher_course;
 class Student_CoursesController extends Controller
 {
     /**
@@ -13,7 +18,7 @@ class Student_CoursesController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -23,7 +28,11 @@ class Student_CoursesController extends Controller
      */
     public function create()
     {
-        //
+        $courses = Course::all();
+        $Student_Courses = Student_course::all();
+        $Teacher_courses = Teacher_course::all();
+        return view('addgradetostudent')->with('courses',$courses)->with('Student_Courses',$Student_Courses);
+
     }
 
     /**
@@ -34,7 +43,9 @@ class Student_CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            
+            
+            
     }
 
     /**
@@ -45,7 +56,10 @@ class Student_CoursesController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $courses = Course::all();
+        $Student_Courses = Student_course::all();
+        return view('enrollcourses')->with('courses',$courses)->with('Student_Courses',$Student_Courses);
     }
 
     /**
@@ -56,7 +70,8 @@ class Student_CoursesController extends Controller
      */
     public function edit($id)
     {
-        //
+            
+
     }
 
     /**
@@ -68,7 +83,11 @@ class Student_CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $enroll = new Student_course();
+        $enroll->Student_id= Auth::user()->id;
+        $enroll->course_id=$id;
+        $enroll->save();
+         return redirect('/Student_course/enrollcourses')->with('success','You enrolled successfully');
     }
 
     /**
@@ -79,6 +98,32 @@ class Student_CoursesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Student_Courses= Student_course::find($id);
+        DB::table('student_courses')->where('course_id', '=', $id)->delete();
+        return redirect('/studentcourseslist')->with('success','Course Deleted');
     }
+    public function studentcourseslist()
+    {
+        $Student_Courses = Student_course::all();
+        $courses= Course::all();
+        return view('studentcourseslist')->with('Student_Courses',$Student_Courses)->with('courses',$courses);
+    }
+    public function showgrade()
+    {
+        $Student_courses = Student_course::all();
+        return view('studentgrade')->with('Student_courses',$Student_courses);
+    }
+    public function addgrade(Request $request ,$id)
+    {
+         DB::table('student_courses')
+              ->where([
+                        ['Student_id', '=', $id],
+                        ['course_id', '=', $request->input('course_id')],
+                ])
+              ->update(['grade' => $request->input('grade')]);
+            
+            
+            return redirect('/Student_course/create')->with('success','grdae Added successfully');
+    }
+    
 }

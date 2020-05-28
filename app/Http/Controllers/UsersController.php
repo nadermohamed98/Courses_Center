@@ -41,7 +41,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        try{
+        
             
             $user = new User();
             //        $user->imageopath = $request->input('imagepath');
@@ -55,9 +55,7 @@ class UsersController extends Controller
             $user->save();
             return redirect('/users/show')->with('success','User Added successfully');
         
-        }catch(PDOException $e){
-            echo "zrbooo";
-        }
+        
     }
 
     /**
