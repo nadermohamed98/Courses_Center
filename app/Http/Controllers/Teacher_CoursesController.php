@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Course;
+use App\Teacher_course;
 
-class Teachere_CoursesController extends Controller
+class Teacher_CoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,9 @@ class Teachere_CoursesController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        $users = User::all();
+         return view('addcoursetoteacher')->with('users',$users)->with('courses',$courses);
     }
 
     /**
@@ -34,7 +39,12 @@ class Teachere_CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Teacher_course = new Teacher_course();
+        $Teacher_course->teacher_id = $request->input('id');
+        $Teacher_course->course_id  = $request->input('courses');
+        $Teacher_course->course_date  = $request->input('date');
+        $Teacher_course->save();
+        return redirect('/teacher_course')->with('success','course Added to teacher successfully');
     }
 
     /**
@@ -45,7 +55,7 @@ class Teachere_CoursesController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
