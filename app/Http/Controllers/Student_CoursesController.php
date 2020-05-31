@@ -98,7 +98,7 @@ class Student_CoursesController extends Controller
         $enroll->Student_id= Auth::user()->id;
         $enroll->course_id=$id;
         $enroll->save();
-         return redirect('/Student_course/enrollcourses')->with('success','You enrolled successfully');
+         return redirect('/Student_course/enrollcourses')->with('success','You enrolled in course successfully');
     }
 
     /**
@@ -111,7 +111,7 @@ class Student_CoursesController extends Controller
     {
         $Student_Courses= Student_course::find($id);
         DB::table('student_courses')->where('course_id', '=', $id)->delete();
-        return redirect('/studentcourseslist')->with('success','Course Deleted');
+        return redirect('/studentcourseslist')->with('success','Course was Deleted');
     }
     public function studentcourseslist()
     {
