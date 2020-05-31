@@ -32,10 +32,10 @@ Route::resource('users','UsersController');
 Route::resource('course','CoursesController');
 Route::resource('staff','StaffsController');
 Route::resource('teacher_course','Teacher_CoursesController');
-
+Route::resource('Student_course','Student_CoursesController');
 //----------
 //Route::get('/enrollcourses','PagesController@enrollcourses');
-Route::resource('Student_course','Student_CoursesController');
+
 
 Route::get('/add',function(){
     return view('add');

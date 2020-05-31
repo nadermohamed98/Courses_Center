@@ -68,6 +68,7 @@
                             <a href="/showgrade" class="btn btn-success">View grade</a>
                             @elseif(Auth::user()->role_id == 2)
                             <a href="/Student_course/create" class="btn btn-primary">Add grade</a>
+                            <a href="/Student_course/" class="btn btn-primary">Edit grade</a>
                             @endif
                             </div>
                             <hr>
