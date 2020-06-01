@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-6 control-label">phone number :</label>
+                                <label for="name" class="col-md-6 control-label">phone Number :</label>
                                 <div class="col-md-6">
                                     <label for="name" class="col-left-4 control-label ">{{Auth::user()->phonenumber}}</label>
                                 </div>
@@ -63,11 +63,11 @@
                             <a href="/edit" class="btn btn-danger">Edit & Delete</a>
                             <a href="/view" class="btn btn-danger">View</a>
                             @elseif(Auth::user()->role_id == 3)
-                            <a href="/Student_course/show" class="btn btn-primary">Enroll Courses</a>
+                            <a href="/Student_course/show" class="btn btn-success">Enroll Courses</a>
                             <a href="/studentcourseslist" class="btn btn-success">View courses list</a>
                             <a href="/showgrade" class="btn btn-success">View grade</a>
                             @elseif(Auth::user()->role_id == 2)
-                            <a href="/Student_course/edit" class="btn btn-primary">Add grade</a>
+                            <a href="/Student_course/create" class="btn btn-primary">Add Grade</a>
                             @endif
                             </div>
                             <hr>

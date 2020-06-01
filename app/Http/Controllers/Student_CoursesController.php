@@ -123,7 +123,7 @@ class Student_CoursesController extends Controller
               ->update(['grade' => $request->input('grade')]);
             
             
-            return redirect('/Student_course/create')->with('success','grdae Added successfully');
+            return redirect('/Student_course/create')->with('success','grdae Added Successfully');
     }
     
 }

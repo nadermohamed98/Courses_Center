@@ -22,6 +22,12 @@
                         <li><a href="/about">About us</a></li>
                         <li><a href="/contact">Contact us</a></li>
                         <li><a href="{{ url('/profile page') }}">profile page</a></li>
+                        
+                        
+                            
+                        
+                            
+            
                     
             </ul>
                     <ul class="nav navbar-nav navbar-right">
