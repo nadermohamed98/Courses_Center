@@ -1,10 +1,14 @@
 @extends('layouts.app')
 @section('content')
 @include('inc.messages')
-
+        
     <h1>Teachers</h1>
     @if (count($users)>0)
         @foreach ($users as $user)
+        @php
+           $salary=DB::table('staff')->where('staff_id',$user->id)->value('salary');
+       @endphp
+               
             @if ($user->role_id==2)
             <form class="form-horizontal" method="POST" action="{{action('Teacher_CoursesController@store')}}">
                 {!! csrf_field() !!}
@@ -26,9 +30,14 @@
                             <option  value="Winter">Winter</option>
                         </select>
                         </h2>
-                    <button type="submit" class="btn btn-primary">
-                        Add course to teacher
-                    </button>
+                        @if ($salary==NULL)
+                            <h2 style="color: red">You should add salary first</h2>
+                        @else
+                        <button type="submit" class="btn btn-primary">
+                            Add course to teacher
+                        </button>
+                        @endif
+                    
                 </div>
                
                     
@@ -36,6 +45,9 @@
                     
                
             @endif
+                
+        
+            
         @endforeach
     @else
     <b>No users Found</b>

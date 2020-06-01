@@ -21,8 +21,8 @@
                         <label for="course_name" class="col-md-1 control-label">{{DB::table('courses')->where('id',$Student_Course->course_id)->value('course_name')}}</label>
                     </div>
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <label for="course_id" class="col-md-4 control-label">course id</label>
-                        <input name="course_id" class="col-md-1 control-label" value="{{$Student_Course->course_id}}" >
+                        <label for="course_id" class="col-md-4 control-label" hidden>course id</label>
+                        <input name="course_id" class="col-md-1 control-label" value="{{$Student_Course->course_id}}" hidden>
                     </div>
                     <div class="form-group{{ $errors->has('sallary') ? ' has-error' : '' }}">
                         <label for="grade" class="col-md-4 control-label">grade</label>

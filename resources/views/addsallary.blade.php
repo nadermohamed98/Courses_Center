@@ -10,7 +10,7 @@
                     $items[] = $Staff->staff_id
                 @endphp
             @endforeach
-            @if($user->id!=Auth::user()->id && empty($items) && $user->id !=3)
+            @if($user->id!=Auth::user()->id && empty($items) && $user->role_id !=3)
             <form class="form-horizontal" method="POST" action="{{action('StaffsController@store')}}">
                 {{ csrf_field() }}
                 <div class="well">
@@ -46,7 +46,7 @@
             </div>
             </form>
 
-            @elseif ($user->id!=Auth::user()->id && !in_array($user->id,$items)&& $user->id !=3  )
+            @elseif ($user->id!=Auth::user()->id && !in_array($user->id,$items)&& $user->role_id !=3  )
             <form class="form-horizontal" method="POST" action="{{action('StaffsController@store')}}">
                 {{ csrf_field() }}
                 <div class="well">
