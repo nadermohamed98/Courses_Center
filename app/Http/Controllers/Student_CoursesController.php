@@ -18,7 +18,10 @@ class Student_CoursesController extends Controller
      */
     public function index()
     {
-
+        $Teacher_courses = Teacher_course::all();
+        $Student_Courses= Student_course::all();
+        $Teacher_id = auth::user()->id;
+        return view('editgrade')->with('Student_Courses',$Student_Courses)->with('Teacher_id',$Teacher_id)->with('Teacher_courses',$Teacher_courses);
     }
 
     /**
@@ -43,7 +46,15 @@ class Student_CoursesController extends Controller
      */
     public function store(Request $request)
     {
-            
+        DB::table('student_courses')
+        ->where([
+                  ['Student_id', '=',  $request->input('s_id')],
+                  ['course_id', '=', $request->input('c_id')],
+          ])
+        ->update(['grade' => $request->input('grade')]);
+      
+      
+      return redirect('/Student_course')->with('success','grdae edited successfully');
             
             
     }
@@ -70,8 +81,8 @@ class Student_CoursesController extends Controller
      */
     public function edit($id)
     {
-            
-
+        
+        
     }
 
     /**
@@ -87,7 +98,7 @@ class Student_CoursesController extends Controller
         $enroll->Student_id= Auth::user()->id;
         $enroll->course_id=$id;
         $enroll->save();
-         return redirect('/Student_course/enrollcourses')->with('success','You enrolled successfully');
+         return redirect('/Student_course/enrollcourses')->with('success','You enrolled in course successfully');
     }
 
     /**
@@ -100,7 +111,7 @@ class Student_CoursesController extends Controller
     {
         $Student_Courses= Student_course::find($id);
         DB::table('student_courses')->where('course_id', '=', $id)->delete();
-        return redirect('/studentcourseslist')->with('success','Course Deleted');
+        return redirect('/studentcourseslist')->with('success','Course was Deleted');
     }
     public function studentcourseslist()
     {
@@ -125,5 +136,7 @@ class Student_CoursesController extends Controller
             
             return redirect('/Student_course/create')->with('success','grdae Added Successfully');
     }
+    
+    
     
 }

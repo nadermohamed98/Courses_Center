@@ -8,8 +8,5 @@
         <h3>Change course</h3>
         <a href="/course/edit" class="btn btn-success">Change</a>
     </div>
-    <div class="well text-center"> 
-        <h3>Change grade</h3>
-        <a href="" class="btn btn-success">Change</a>
-    </div>    
+       
 @endsection
