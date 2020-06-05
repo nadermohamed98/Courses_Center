@@ -44,7 +44,7 @@ class CoursesController extends Controller
         $course->course_name= $request->input('coursename');
         $course->course_code= $request->input('coursecode');
         $course->save();
-        return redirect('/course/create')->with('success','Course Added successfully');
+        return redirect('/course/create')->with('success','Course Added Successfully');
     }
 
     /**

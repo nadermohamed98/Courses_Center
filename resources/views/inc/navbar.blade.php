@@ -18,7 +18,17 @@
                 
                     @if (Auth::check())
                         <li><a href="{{ url('/profile page') }}">profile page</a></li>
+<<<<<<< HEAD
+                        
+                        
+                            
+                        
+                            
+            
+                    
+=======
 
+>>>>>>> 203267421c7151cdb2d0d5115fecc2962c411202
             </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @else
