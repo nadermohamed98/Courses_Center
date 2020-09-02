@@ -10,7 +10,7 @@
             </div>
         @endforeach
     @else
-    <b>No users Found</b>  
+    <b>No Courses Found</b>  
     @endif
     @include('inc.messages')
 

@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <h1>Edit information</h1>
-    {!! Form::open(['action'=>['UsersController@update',$user->id],'method'=>'POST']) !!}
+    {!! Form::open(['action'=>['UsersController@update',$user->id],'method'=>'POST', 'enctype' => 'multipart/form-data']) !!}
+        <div class="form-group">
+            {{Form::label('image','Image')}} 
+            {{Form::file('image_path')}}
+        </div>
         <div class="form-group">
             {{Form::label('name','Name')}} 
             {{Form::text('name',$user->name,['class'=>'form-control','placeholder'=>'title'])}}

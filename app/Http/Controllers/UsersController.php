@@ -91,6 +91,19 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'image_path' => 'image|nullable|max:1999'
+        ]);
+
+        if($request->hasFile('image_path')){
+            $fileNameWithExt = $request->file('image_path')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extention = $request->file('image_path')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extention;
+            $path = $request->file('image_path')->storeAs('public/images/', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.png';
+        }
         $user = User::find($id);
 //        $user->imageopath = $request->input('imagepath');
         $user->name= $request->input('name');
@@ -99,6 +112,7 @@ class UsersController extends Controller
         $user->DateOfBirth= $request->input('DateOfBirth');
         $user->address= $request->input('address');
         $user->phonenumber= $request->input('phonenumber');
+        $user->image_path = $fileNameToStore;
         if ($user->role_id==1) {
             $user->role_id = '1';
         }

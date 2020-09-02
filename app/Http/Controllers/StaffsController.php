@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Staff;
+use App\User;
+use auth;
 
 class StaffsController extends Controller
 {
@@ -23,7 +26,9 @@ class StaffsController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $Staffs = Staff::all();
+        return view('addsallary')->with('Staffs',$Staffs)->with('users',$users);
     }
 
     /**
@@ -34,7 +39,13 @@ class StaffsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Staff = new Staff();
+            //        $user->imageopath = $request->input('imagepath');
+            $Staff->staff_id=$request->input('id');
+            $Staff->salary= $request->input('salary');
+            $Staff->role_id= $request->input('role_id');
+            $Staff->save();
+            return redirect('/staff/create')->with('success','salary Added successfully');
     }
 
     /**
@@ -68,7 +79,7 @@ class StaffsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

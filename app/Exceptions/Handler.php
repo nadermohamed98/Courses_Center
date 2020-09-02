@@ -44,8 +44,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
+        return parent::render($request, $exception);
+//        return redirect()->back()->with('error','Sorry this E-mail is allready exist');
 //        return parent::render($request, $exception);
-        return redirect()->back()->with('error','Sorry this E-mail is allready exist');
+       //return redirect()->back()->with('error', 'E-mail is already exist');
     }
 
     /**

@@ -31,5 +31,7 @@ class PagesController extends Controller
     }
     public function profile(){
         return view("profile");
+    }public function enrollcourses(){
+        return view("enrollcourses");
     }
 }
