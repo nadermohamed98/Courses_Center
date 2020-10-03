@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Profile Page</h1>
+<body style="background-image:url('matrial/31799.jpg');background-size:cover">
+    <h1 style="color:#FFF"><b>Profile Page</b></h1>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" >
                 <div class="panel panel-default">
                 <div class="panel-heading">Information</div>
                     <div class="panel-body">
@@ -82,4 +83,5 @@
             </div>
         </div>
     </div>
+</body>
 @endsection
