@@ -40,6 +40,18 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
+        $courses = Course::all();
+        foreach($courses as $c){
+            if($c->course_name === $request->input('coursename')){
+                return redirect('/course/create')->with('failed','Course is allready exists');
+            }else{
+                $course = new Course();
+                $course->course_name= $request->input('coursename');
+                $course->course_code= $request->input('coursecode');
+                $course->save();
+                return redirect('/course/create')->with('success','Course Added Successfully');
+            }
+        }
         $course = new Course();
         $course->course_name= $request->input('coursename');
         $course->course_code= $request->input('coursecode');
